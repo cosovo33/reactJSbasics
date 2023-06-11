@@ -1,27 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import MyDataGrid from './component/DataGridComponent';
+import { useAuth0 } from "@auth0/auth0-react";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Dashboard from "./component/dashboard";
+import AboutUs from "./component/dashboard/aboutus";
+import Charts from "./component/dashboard/chart";
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      {/*<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>*/}
-          <MyDataGrid/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/charts" element={<Charts />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

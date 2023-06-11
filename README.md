@@ -13,7 +13,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
+The Auth0 api won't work on HTTP so we must do forwarding with ngrok.Follow these steps :
+## `npm install  -g ngrok `
+modify the PATH variable to detect ngrok in npm .
+then sign up to ngrok website and get the config with idclient. 
+run `ngrok config add-authtoken ur auth token ` .
+then run `ngrok http 3000` in a terminal after running `npm start`.
+you will get a new HTTPS URL IN WICH YOU GO TO AUTH0 WEBSITE and create a new application.
+enable then the social and database authentication with sign up enabled too .
+go to application settings .
+then paste your https url into the allowed callbacks and the following fields.
+after saving your configuration .now your login works .
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
